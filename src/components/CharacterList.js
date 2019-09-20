@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
@@ -44,23 +43,16 @@ const LinkContainer = styled.div`
   justify-content: center;
 `;
 
-export default function CharacterList() {
-  const [characters, setCharacters] = useState([]);
+export default function CharacterList({ characters }) {
   const [searchResults, setSearchResults] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://rickandmortyapi.com/api/character/")
-      .then(respo => setCharacters(respo.data.results))
-      .catch(err => console.log('Failed axios', err));
-  }, []);
 
   return (
     <CharacterPageContainer>
-      <SearchForm characters={characters} setSearchResults={setSearchResults} />
       <LinkContainer>
           <NavLink className="link" to="/">Home</NavLink>
           <NavLink className="link" to="/episodes">Episodes</NavLink>
       </LinkContainer>
+      <SearchForm characters={characters} setSearchResults={setSearchResults} />
       <CharacterContainer>
         {
           (searchResults.length === 0 ? characters : searchResults).map(character => 
