@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: The benefit of using `client-side routing` is the ability to render pages with the use of React Router. This prevents the system from having to access those pages from a server. Using client-side routing, you can specify which links send you to which route, locally. This allows for a more efficient routing aspect of your page, as well as preventing the page from needing to re-render when changing pages.
 
 ## Project Set Up
 
