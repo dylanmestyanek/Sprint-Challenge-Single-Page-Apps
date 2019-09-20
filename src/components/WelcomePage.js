@@ -25,17 +25,27 @@ const HeaderStyles = styled.header`
   }
 `;
 
+const LinkContainer = styled.div`
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+`;
+
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
       <HeaderStyles>
+        <LinkContainer>
+          <NavLink className="characterLink" to="/character-list">Characters</NavLink>
+          <NavLink className="characterLink" to="/episodes">Episodes</NavLink>
+        </LinkContainer>
         <h1>Welcome to the ultimate fan site!</h1>
         <img
           className="main-img"
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg"
           alt="rick"
         />
-        <NavLink className="characterLink" to="/character-list">View Characters</NavLink>
       </HeaderStyles>
     </section>
   );
