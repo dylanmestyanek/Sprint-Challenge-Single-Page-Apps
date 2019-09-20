@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+
+const SearchInput = styled.input`
+  padding-left: 5px;
+  margin-bottom: 20px;
+  border-style: none;
+  border: 1px solid #97cbd8;
+`;
 
 export default function SearchForm({ 
   characters,
@@ -21,10 +29,10 @@ export default function SearchForm({
   return (
     <section className="search-form">
      <form>
-       <input
+       <SearchInput
         name="search"
         type="text"
-        placeholder="Search"
+        placeholder="Search Characters"
         value={searchTerm}
         onChange={handleChange}
        />

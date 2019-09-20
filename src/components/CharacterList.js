@@ -12,7 +12,7 @@ const CharacterPageContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  .homeLink {
+  .link {
     text-decoration: none;
     background: #97cbd8;
     color: black;
@@ -37,6 +37,13 @@ const CharacterContainer = styled.section`
   justify-content: space-evenly;
 `;
 
+const LinkContainer = styled.div`
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+`;
+
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
@@ -50,7 +57,10 @@ export default function CharacterList() {
   return (
     <CharacterPageContainer>
       <SearchForm characters={characters} setSearchResults={setSearchResults} />
-      <NavLink to="/" className="homeLink">Return to Main Page</NavLink>
+      <LinkContainer>
+          <NavLink className="link" to="/">Home</NavLink>
+          <NavLink className="link" to="/episodes">Episodes</NavLink>
+      </LinkContainer>
       <CharacterContainer>
         {
           (searchResults.length === 0 ? characters : searchResults).map(character => 

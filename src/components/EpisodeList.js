@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import EpisodeCard from "./EpisodeCard";
 
-const CharacterPageContainer = styled.div`
+const EpisodePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,11 +29,35 @@ const CharacterPageContainer = styled.div`
   }
 `;
 
-const CharacterContainer = styled.section`
+const EpisodeContainer = styled.section`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: center;
+  
+  .link {
+    text-decoration: none;
+    background: #97cbd8;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 30px auto 0;
+    width: 200px;
+    text-align: center;
+    transition: all .3s;
+
+    &:hover {
+      background: #2b91a9;
+      color: white;
+    }
+  }
 `;
 
 export default function EpisodeList() {
@@ -53,9 +77,12 @@ export default function EpisodeList() {
   }, [episodes]);
 
   return (
-    <CharacterPageContainer>
-      <NavLink to="/" className="homeLink">Return to Main Page</NavLink>
-      <CharacterContainer>
+    <EpisodePageContainer>
+       <LinkContainer>
+          <NavLink className="link" to="/">Home</NavLink>
+          <NavLink className="link" to="/character-list">Characters</NavLink>
+        </LinkContainer>
+      <EpisodeContainer>
           <h2> Season 1 </h2>
         {
             seasonOne.map(episode => 
@@ -68,7 +95,7 @@ export default function EpisodeList() {
                 <EpisodeCard key={episode.id} episode={episode} />
           )
         }
-      </CharacterContainer>
-    </CharacterPageContainer>
+      </EpisodeContainer>
+    </EpisodePageContainer>
   );
 }

@@ -7,7 +7,7 @@ const HeaderStyles = styled.header`
   flex-direction: column;
   justify-content: center;
 
-  .characterLink {
+  .link {
     text-decoration: none;
     background: #97cbd8;
     color: black;
@@ -37,8 +37,8 @@ export default function WelcomePage() {
     <section className="welcome-page">
       <HeaderStyles>
         <LinkContainer>
-          <NavLink className="characterLink" to="/character-list">Characters</NavLink>
-          <NavLink className="characterLink" to="/episodes">Episodes</NavLink>
+          <NavLink className="link" to="/character-list">Characters</NavLink>
+          <NavLink className="link" to="/episodes">Episodes</NavLink>
         </LinkContainer>
         <h1>Welcome to the ultimate fan site!</h1>
         <img
