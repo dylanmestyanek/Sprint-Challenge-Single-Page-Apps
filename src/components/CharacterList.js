@@ -4,6 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 
 import CharacterCard from "./CharacterCard";
+import SearchForm from "./SearchForm";
 
 const CharacterPageContainer = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const CharacterContainer = styled.section`
 
 export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     axios.get("https://rickandmortyapi.com/api/character/")
@@ -47,10 +49,11 @@ export default function CharacterList() {
 
   return (
     <CharacterPageContainer>
+      <SearchForm characters={characters} setSearchResults={setSearchResults} />
       <NavLink to="/" className="homeLink">Return to Main Page</NavLink>
       <CharacterContainer>
         {
-          characters.map(character => 
+          (searchResults.length === 0 ? characters : searchResults).map(character => 
             <CharacterCard key={character.id} character={character} />
           )
         }
